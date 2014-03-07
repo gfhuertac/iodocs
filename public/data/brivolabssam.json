@@ -1,0 +1,2265 @@
+{
+  "endpoints": [
+    {
+      "name": "Access Reservations",
+      "methods" : [
+        {
+          "MethodName": "Show Access Reservations",
+          "Synopsis": "list all of the access reservation",
+          "HTTPMethod": "GET",
+          "URI": "/accessReservations",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Show Access Reservation By Identity",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/accessReservations",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "identity",
+              "Required": "Y",
+              "Default": "11111",
+              "Location": "query",
+              "Type": "string",
+              "Description": "identity"
+            },
+            {
+              "Name": "accessTarget",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "access Target"
+            },
+            {
+              "Name": "action",
+              "Required": "Y",
+              "Default": "randivoo_checkin",
+              "Location": "query",
+              "Type": "string",
+              "Description": "action"
+            }
+          ]
+        },
+        {
+          "MethodName": "Show Access Reservation By Token",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/accessReservations",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "token",
+              "Required": "Y",
+              "Default": "87e2ca8b37a93f9419c401d0a41c933c7e2b46f5deb1fe9717d381e4460095c5",
+              "Location": "query",
+              "Type": "string",
+              "Description": "token"
+            },
+            {
+              "Name": "accessTarget",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "access Target"
+            },
+            {
+              "Name": "action",
+              "Required": "Y",
+              "Default": "randivoo_checkin",
+              "Location": "query",
+              "Type": "string",
+              "Description": "action"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Access Reservation",
+          "Synopsis": "create a access reservation",
+          "HTTPMethod": "POST",
+          "URI": "/accessReservations",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "Entry 1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Access Reservation",
+          "Synopsis": "update a access reservation",
+          "HTTPMethod": "PUT",
+          "URI": "/accessReservation/:accessReservationId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessReservationId",
+              "Required": "Y",
+              "Default": "2",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "updateAccessReservation",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Access Reservation",
+          "Synopsis": "delete a access reservation",
+          "HTTPMethod": "DELETE",
+          "URI": "/accessReservation/:accessReservationId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessReservationId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Access Targets",
+      "methods" : [
+        {
+          "MethodName": "Show Access Targets",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/site/:siteId/accessTargets",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Access Target",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/site/:siteId/accessTargets",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "2",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "Side Door",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "externalId",
+              "Required": "N",
+              "Default": "EP123",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Id"
+            },
+            {
+              "Name": "description",
+              "Required": "N",
+              "Default": "desc",
+              "Location": "body",
+              "Type": "string",
+              "Description": "description"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Access Target",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/site/:siteId/accessTarget/:accessTargetId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": ":accessTargetId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Target Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "Front Door",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "externalId",
+              "Required": "N",
+              "Default": "asd",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Access Target",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/site/:siteId/accessTarget/:accessTargetId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": ":accessTargetId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Target Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cloudvue",
+      "methods" : [
+        {
+          "MethodName": "Cloudvue Capture",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/cloudvue/capture",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "email",
+              "Required": "Y",
+              "Default": "user@domain.com",
+              "Location": "query",
+              "Type": "string",
+              "Description": "email"
+            },
+            {
+              "Name": "password",
+              "Required": "Y",
+              "Default": "cloudVuePassword",
+              "Location": "query",
+              "Type": "string",
+              "Description": "password"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Devices",
+      "methods" : [
+        {
+          "MethodName": "Show All Devices",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/devices",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Show All Devices For A Site",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/site/:siteId/devices",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Show A Device",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/site/:siteId/device/:deviceId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Device",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/site/:siteId/devices",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "camera xyz",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "camera",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "externalId",
+              "Required": "N",
+              "Default": "123",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Id"
+            },
+            {
+              "Name": "capabilities",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "capabilities"
+            },
+            {
+              "Name": "properties",
+              "Required": "N",
+              "Default": "{ \"description\": \"this is a camera\" }",
+              "Location": "body",
+              "Type": "string",
+              "Description": "properties"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Device",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/site/:siteId/device/:deviceId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "camera xyz",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "camera",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "externalId",
+              "Required": "N",
+              "Default": "123",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Id"
+            },
+            {
+              "Name": "capabilities",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "capabilities"
+            },
+            {
+              "Name": "properties",
+              "Required": "N",
+              "Default": "{ \"description\": \"updated properties of camera\" }",
+              "Location": "body",
+              "Type": "string",
+              "Description": "properties"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Device",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/site/:siteId/device/:deviceId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Domain Accounts",
+      "methods" : [
+        {
+          "MethodName": "Get Domain Accounts",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/domainAccounts",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Show My Domain Account",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/me",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Get Domain Account",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/domainAccount/:domainAccountId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "X-Mashery-Service-Key",
+              "Required": "Y",
+              "Default": "{{MasheryKey}}",
+              "Location": "header",
+              "Type": "string",
+              "Description": "X Mashery Service Key"
+            },
+            {
+              "Name": "X-Forwarded-Proto",
+              "Required": "Y",
+              "Default": "https",
+              "Location": "header",
+              "Type": "string",
+              "Description": "X Forwarded Proto"
+            },
+            {
+              "Name": ":domainAccountId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "domain Account Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Event Invites",
+      "methods" : [
+        {
+          "MethodName": "Find Event Invite By ExternalId",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/sam/eventInvites",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "externalId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "external Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create Event Invite",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/sam/eventInvites",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Content Type"
+            },
+            {
+              "Name": "body",
+              "Required": "N",
+              "Default": "{\n  \"externalId\" : \"1\",\n  \"invitees\" : [{\"username\": \"user1\", \"sponsorId\": \"1\", \"identityProvider\": \"salesforce\", \"externalId\": \"1\", \"type\": \"Contact\"}],\n  \"schedules\" : [{\"startDateTime\": \"2013-11-25T09:00:00\", \"endDateTime\": \"2014-12-07T17:00:00\"}],\n  \"subscriptionType\": \"chatter-direct\",\n  \"chatterGroupId\": \"insertValidID\",\n  \"siteId\" : 1\n}",
+              "Location": "body",
+              "Type": "textarea",
+              "Description": ""
+            }
+          ]
+        },
+        {
+          "MethodName": "Add New Invitee To Event Invite",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/sam/eventInvite/:eventInviteId/invitees",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Content Type"
+            },
+            {
+              "Name": ":eventInviteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "event Invite Id"
+            },
+            {
+              "Name": "body",
+              "Required": "N",
+              "Default": "{\n  \"invitees\" : [{\"username\": \"user1\", \"sponsorId\": \"1\", \"identityProvider\": \"salesforce\", \"externalId\": \"1\", \"type\": \"Contact\"}],\n  \"subscriptionType\": \"chatter-direct\",\n  \"chatterGroupId\": \"abc123\"\n}",
+              "Location": "body",
+              "Type": "textarea",
+              "Description": ""
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete An Invitee From An Event Invite",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/sam/eventInvite/:eventInviteId/invitee/:inviteeId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Content Type"
+            },
+            {
+              "Name": ":eventInviteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "event Invite Id"
+            },
+            {
+              "Name": ":inviteeId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "invitee Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "methods" : [
+        {
+          "MethodName": "Create Event",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/events",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Content Type"
+            },
+            {
+              "Name": "type",
+              "Required": "Y",
+              "Default": "randivoo_checkin",
+              "Location": "query",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "body",
+              "Required": "N",
+              "Default": "{\n    \"accountId\": 5022,\n    \"securityAction\": {\n        \"securityActionId\": 2004,\n        \"action\": \"Open\",\n        \"securityEventType\": {\n            \"typeId\": 1,\n            \"typeKey\": \"security_event_type.successful_access\",\n            \"description\": \"Access attempts that do result in granted access\"\n        },\n        \"exception\": false,\n        \"priority\": \"LOW\"\n    },\n    \"actor\": {\n        \"externalId\": \"1\",\n        \"accountId\": 5022,\n        \"firstName\": \"Yiting\",\n        \"lastName\": \"Lloyd\",\n        \"userId\": 27055\n    },\n    \"actorType\": {\n        \"objectTypeId\": 3,\n        \"type\": \"USER\"\n    },\n    \"eventObject\": {\n        \"deviceId\": \"2\",\n        \"name\": \"My Office Door\",\n        \"accountId\": 5022,\n        \"controlPanelId\": 12311,\n        \"site\": {\n            \"objectId\": 75998,\n            \"name\": \"Aji-Nippon\"\n        }\n    },\n    \"site\": {\n        \"objectId\": 75998,\n        \"name\": \"Aji-Nippon\"\n    },\n    \"occurred\": \"2013-10-25T15:24:37-04:00\"\n}",
+              "Location": "body",
+              "Type": "textarea",
+              "Description": ""
+            }
+          ]
+        },
+        {
+          "MethodName": "Create Event (Old Way",
+          "Synopsis": "Using token and entry point",
+          "HTTPMethod": "POST",
+          "URI": "/events",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "token",
+              "Required": "N",
+              "Default": "defd128dea13e64faecb9245fb70066e4b68cd632aa9efd1e44c056f479a111d",
+              "Location": "body",
+              "Type": "string",
+              "Description": "token"
+            },
+            {
+              "Name": "accessTarget",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "access Target"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "doorbell",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "deviceId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "device Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create Anonymous Event",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/events",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "accessTarget",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "access Target"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "doorbell",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "deviceId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "device Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Google Glass",
+      "methods" : [
+        {
+          "MethodName": "Glass OAuth Manager",
+          "Synopsis": "Manage the oauth dance",
+          "HTTPMethod": "GET",
+          "URI": "/glass/:glassId/oauth",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":glassId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "glass Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create Glass",
+          "Synopsis": "Create a new google glass associated to an organization",
+          "HTTPMethod": "POST",
+          "URI": "/glass",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "clientId",
+              "Required": "N",
+              "Default": "ThisIsMyGoogleClientId",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client Id"
+            },
+            {
+              "Name": "clientSecret",
+              "Required": "N",
+              "Default": "ThisIsMyGoogleClientSecret",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client Secret"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create Glass Visitor Request",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/glass/:glassId/visitor",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":glassId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "glass Id"
+            },
+            {
+              "Name": "imageUrl",
+              "Required": "N",
+              "Default": "http://farm3.static.flickr.com/2038/2277476479_f92672352d.jpg",
+              "Location": "body",
+              "Type": "string",
+              "Description": "image Url"
+            },
+            {
+              "Name": "doorId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "door Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oauth Clients",
+      "methods" : [
+        {
+          "MethodName": "Show All OAuth Clients",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/oauthClients",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Show An OAuth Client",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/oauthClient/:oauthClientId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":oauthClientId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "oauth Client Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create An OAuth Client",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauthClients",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "clientName",
+              "Required": "N",
+              "Default": "abc client",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client Name"
+            },
+            {
+              "Name": "clientSecret",
+              "Required": "N",
+              "Default": "1234aczd",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client Secret"
+            },
+            {
+              "Name": "redirectURI",
+              "Required": "N",
+              "Default": "http://localhost/callback",
+              "Location": "body",
+              "Type": "string",
+              "Description": "redirect URI"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update An OAuth Client",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/oauthClient/:oauthClientId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":oauthClientId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "oauth Client Id"
+            },
+            {
+              "Name": "clientName",
+              "Required": "N",
+              "Default": "abc client",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client Name"
+            },
+            {
+              "Name": "clientSecret",
+              "Required": "N",
+              "Default": "1234aczd",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client Secret"
+            },
+            {
+              "Name": "redirectURI",
+              "Required": "N",
+              "Default": "http://localhost/callback",
+              "Location": "body",
+              "Type": "string",
+              "Description": "redirect URI"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete An OAuth Client",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/oauthClient/:oauthClientId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":oauthClientId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "oauth Client Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oauth Server Development",
+      "methods" : [
+        {
+          "MethodName": "[OAuth2 ] Login",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/login",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "domainID",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "domain ID"
+            },
+            {
+              "Name": "redirect",
+              "Required": "Y",
+              "Default": "%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A5000%252Foauth%252Fcallback%26client_id%3D1%26domainID%3D1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "redirect"
+            },
+            {
+              "Name": "transaction_id",
+              "Required": "N",
+              "Default": "ft7Bh7Jm",
+              "Location": "query",
+              "Type": "string",
+              "Description": "transaction id"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2 ] Authorize",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/oauth/authorize",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "response_type",
+              "Required": "Y",
+              "Default": "code",
+              "Location": "query",
+              "Type": "string",
+              "Description": "response type"
+            },
+            {
+              "Name": "redirect_uri",
+              "Required": "Y",
+              "Default": "http%3A%2F%2Flocalhost%3A5000%2Foauth%2Fcallback",
+              "Location": "query",
+              "Type": "string",
+              "Description": "redirect uri"
+            },
+            {
+              "Name": "client_id",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "client id"
+            },
+            {
+              "Name": "domainID",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "domain ID"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2 ] Grant Access",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/grantAccess",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "transaction_id",
+              "Required": "N",
+              "Default": "ft7Bh7Jm",
+              "Location": "body",
+              "Type": "string",
+              "Description": "transaction id"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2 ] Token",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/token",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "code",
+              "Required": "N",
+              "Default": "get_this_from_previous_step",
+              "Location": "body",
+              "Type": "string",
+              "Description": "code"
+            },
+            {
+              "Name": "client_id",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client id"
+            },
+            {
+              "Name": "client_secret",
+              "Required": "N",
+              "Default": "demo-secret",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client secret"
+            },
+            {
+              "Name": "grant_type",
+              "Required": "N",
+              "Default": "authorization_code",
+              "Location": "body",
+              "Type": "string",
+              "Description": "grant type"
+            },
+            {
+              "Name": "redirect_uri",
+              "Required": "N",
+              "Default": "http://localhost:5000/oauth/callback",
+              "Location": "body",
+              "Type": "string",
+              "Description": "redirect uri"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2] Token - Client Grant",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/token",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "Authorization",
+              "Required": "Y",
+              "Default": "Basic MTpkZW1vLXNlY3JldA==",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Authorization"
+            },
+            {
+              "Name": "grant_type",
+              "Required": "N",
+              "Default": "client_credentials",
+              "Location": "body",
+              "Type": "string",
+              "Description": "grant type"
+            },
+            {
+              "Name": "sessionId",
+              "Required": "N",
+              "Default": "ThisIsMySalesforceSessionId",
+              "Location": "body",
+              "Type": "string",
+              "Description": "session Id"
+            },
+            {
+              "Name": "userId",
+              "Required": "N",
+              "Default": "ThisIsMySalesforceUserId",
+              "Location": "body",
+              "Type": "string",
+              "Description": "user Id"
+            },
+            {
+              "Name": "instanceUrl",
+              "Required": "N",
+              "Default": "https://na9.salesforce.com",
+              "Location": "body",
+              "Type": "string",
+              "Description": "instance Url"
+            },
+            {
+              "Name": "domainId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "domain Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2] Session",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/session",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "userId",
+              "Required": "N",
+              "Default": "005E0000004JYVGIA4",
+              "Location": "body",
+              "Type": "string",
+              "Description": "user Id"
+            },
+            {
+              "Name": "sessionId",
+              "Required": "N",
+              "Default": "00DE0000000ZhnD!ARUAQLyzYzhThRYA__ZFj3pZ4ght72ZmlXZu0WUvUGwPw.SBHmGmyD7zsuQ3AtROWp6rLroKWLhaMF4QdIeWzi8YhHFV1eJP",
+              "Location": "body",
+              "Type": "string",
+              "Description": "session Id"
+            },
+            {
+              "Name": "instanceUrl",
+              "Required": "N",
+              "Default": "https://na9.salesforce.com",
+              "Location": "body",
+              "Type": "string",
+              "Description": "instance Url"
+            },
+            {
+              "Name": "domainId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "domain Id"
+            },
+            {
+              "Name": "client_secret",
+              "Required": "N",
+              "Default": "demo-secret",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client secret"
+            },
+            {
+              "Name": "client_id",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oauth Server Mashery",
+      "methods" : [
+        {
+          "MethodName": "[OAuth2 ] Login",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/login",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "domainID",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "domain ID"
+            },
+            {
+              "Name": "redirect",
+              "Required": "Y",
+              "Default": "%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A5000%252Foauth%252Fcallback%26apikey%3Dpp6zvpn99yq63tr75s9eng8w%26domainID%3D1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "redirect"
+            },
+            {
+              "Name": "transaction_id",
+              "Required": "N",
+              "Default": "ft7Bh7Jm",
+              "Location": "query",
+              "Type": "string",
+              "Description": "transaction id"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2 ] Authorize",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/oauth/authorize",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "response_type",
+              "Required": "Y",
+              "Default": "code",
+              "Location": "query",
+              "Type": "string",
+              "Description": "response type"
+            },
+            {
+              "Name": "redirect_uri",
+              "Required": "Y",
+              "Default": "http%3A%2F%2Flocalhost%3A5000%2Foauth%2Fcallback",
+              "Location": "query",
+              "Type": "string",
+              "Description": "redirect uri"
+            },
+            {
+              "Name": "apikey",
+              "Required": "Y",
+              "Default": "pp6zvpn99yq63tr75s9eng8w",
+              "Location": "query",
+              "Type": "string",
+              "Description": "apikey"
+            },
+            {
+              "Name": "domainID",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "query",
+              "Type": "string",
+              "Description": "domain ID"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2 ] Grant Access",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/grantAccess",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "transaction_id",
+              "Required": "N",
+              "Default": "ft7Bh7Jm",
+              "Location": "body",
+              "Type": "string",
+              "Description": "transaction id"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2 ] Token",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/token",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "code",
+              "Required": "N",
+              "Default": "get_this_from_previous_step",
+              "Location": "body",
+              "Type": "string",
+              "Description": "code"
+            },
+            {
+              "Name": "grant_type",
+              "Required": "N",
+              "Default": "authorization_code",
+              "Location": "body",
+              "Type": "string",
+              "Description": "grant type"
+            },
+            {
+              "Name": "redirect_uri",
+              "Required": "N",
+              "Default": "http://localhost:5000/oauth/callback",
+              "Location": "body",
+              "Type": "string",
+              "Description": "redirect uri"
+            },
+            {
+              "Name": "client_id",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client id"
+            },
+            {
+              "Name": "client_secret",
+              "Required": "N",
+              "Default": "demo-secret",
+              "Location": "body",
+              "Type": "string",
+              "Description": "client secret"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2] Token - Client Grant",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/token",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "Authorization",
+              "Required": "Y",
+              "Default": "Basic MTpkZW1vLXNlY3JldA==",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Authorization"
+            },
+            {
+              "Name": "grant_type",
+              "Required": "N",
+              "Default": "client_credentials",
+              "Location": "body",
+              "Type": "string",
+              "Description": "grant type"
+            },
+            {
+              "Name": "sessionId",
+              "Required": "N",
+              "Default": "ThisIsMySalesforceSessionId",
+              "Location": "body",
+              "Type": "string",
+              "Description": "session Id"
+            },
+            {
+              "Name": "userId",
+              "Required": "N",
+              "Default": "ThisIsMySalesforceUserId",
+              "Location": "body",
+              "Type": "string",
+              "Description": "user Id"
+            },
+            {
+              "Name": "instanceUrl",
+              "Required": "N",
+              "Default": "https://na9.salesforce.com",
+              "Location": "body",
+              "Type": "string",
+              "Description": "instance Url"
+            },
+            {
+              "Name": "domainId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "domain Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "[OAuth2] Session",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/oauth/session",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "userId",
+              "Required": "N",
+              "Default": "005E0000004JYVGIA4",
+              "Location": "body",
+              "Type": "string",
+              "Description": "user Id"
+            },
+            {
+              "Name": "sessionId",
+              "Required": "N",
+              "Default": "00DE0000000ZhnD!ARUAQLyzYzhThRYA__ZFj3pZ4ght72ZmlXZu0WUvUGwPw.SBHmGmyD7zsuQ3AtROWp6rLroKWLhaMF4QdIeWzi8YhHFV1eJP",
+              "Location": "body",
+              "Type": "string",
+              "Description": "session Id"
+            },
+            {
+              "Name": "instanceUrl",
+              "Required": "N",
+              "Default": "https://na9.salesforce.com",
+              "Location": "body",
+              "Type": "string",
+              "Description": "instance Url"
+            },
+            {
+              "Name": "domainId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "domain Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Qrcodes",
+      "methods" : [
+        {
+          "MethodName": "Generate QRCode",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/qrCode",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "qrdata",
+              "Required": "Y",
+              "Default": "TESTTESTTEST",
+              "Location": "query",
+              "Type": "string",
+              "Description": "qrdata"
+            },
+            {
+              "Name": "tokenType",
+              "Required": "N",
+              "Default": "grant",
+              "Location": "query",
+              "Type": "string",
+              "Description": "token Type"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Schedules",
+      "methods" : [
+        {
+          "MethodName": "Show Schedules",
+          "Synopsis": "list all of the schedules",
+          "HTTPMethod": "GET",
+          "URI": "/schedules",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Find A Schedule",
+          "Synopsis": "Find a schedule",
+          "HTTPMethod": "GET",
+          "URI": "/schedule/:scheduleId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":scheduleId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "schedule Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Schedule",
+          "Synopsis": "list all of the entry request",
+          "HTTPMethod": "POST",
+          "URI": "/schedules",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "TestSchedule",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "startDateTime",
+              "Required": "N",
+              "Default": "2013-05-26T13:51:50",
+              "Location": "body",
+              "Type": "string",
+              "Description": "start Date Time"
+            },
+            {
+              "Name": "endDateTime",
+              "Required": "N",
+              "Default": "2014-05-26T13:51:50",
+              "Location": "body",
+              "Type": "string",
+              "Description": "end Date Time"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Schedule",
+          "Synopsis": "update schedule",
+          "HTTPMethod": "PUT",
+          "URI": "/schedule/:scheduleId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":scheduleId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "schedule Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "UpdatedSchedule",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "startDateTime",
+              "Required": "N",
+              "Default": "2013-05-26T13:51:50",
+              "Location": "body",
+              "Type": "string",
+              "Description": "start Date Time"
+            },
+            {
+              "Name": "endDateTime",
+              "Required": "N",
+              "Default": "2013-05-26T13:51:50",
+              "Location": "body",
+              "Type": "string",
+              "Description": "end Date Time"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete Schedule",
+          "Synopsis": "Delete a schedule",
+          "HTTPMethod": "DELETE",
+          "URI": "/schedule/:scheduleId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":scheduleId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "schedule Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sites",
+      "methods" : [
+        {
+          "MethodName": "Show Sites",
+          "Synopsis": "list all of the Show Sites",
+          "HTTPMethod": "GET",
+          "URI": "/sites",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "TestSite",
+              "Location": "query",
+              "Type": "string",
+              "Description": "name"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Site",
+          "Synopsis": "create a site",
+          "HTTPMethod": "POST",
+          "URI": "/sites",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "TestSite",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "externalId",
+              "Required": "N",
+              "Default": "SITE123",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Site",
+          "Synopsis": "update a site",
+          "HTTPMethod": "PUT",
+          "URI": "/site/:siteId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "Marvel",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Site",
+          "Synopsis": "Delete a site",
+          "HTTPMethod": "DELETE",
+          "URI": "/site/:siteId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":siteId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "site Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Subscriptions",
+      "methods" : [
+        {
+          "MethodName": "Get Subscriptions For An Access Target",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/accessTarget/:accessTargetId/subscriptions",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessTargetId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Target Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Subscription For An Access Target",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/accessTarget/:accessTargetId/subscriptions",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessTargetId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Target Id"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "glass-monitor",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "data",
+              "Required": "N",
+              "Default": "{\"demo\": \"data\"}",
+              "Location": "body",
+              "Type": "string",
+              "Description": "data"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Subscription For An Access Target",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/accessTarget/:accessTargetId/subscription/:subscriptionId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessTargetId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Target Id"
+            },
+            {
+              "Name": ":subscriptionId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "subscription Id"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "glass-monitor",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "data",
+              "Required": "N",
+              "Default": "{\"demo\": \"updated data\"}",
+              "Location": "body",
+              "Type": "string",
+              "Description": "data"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Subscription From An Access Target",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/accessTarget/:accessTargetId/subscription/:subscriptionId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessTargetId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Target Id"
+            },
+            {
+              "Name": ":subscriptionId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "subscription Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Get Subscriptions For An Access Reservation",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/accessReservation/:accessReservationId/subscriptions",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessReservationId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Subscription For An Access Reservation",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/accessReservation/:accessReservationId/subscriptions",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessReservationId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "VMS-force.com",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "data",
+              "Required": "N",
+              "Default": "{\"demo\": \"data\"}",
+              "Location": "body",
+              "Type": "string",
+              "Description": "data"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Subscription For An Access Reservation",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/accessReservation/:accessReservationId/subscription/:subscriptionId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessReservationId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            },
+            {
+              "Name": ":subscriptionId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "subscription Id"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "glass-monitor",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "data",
+              "Required": "N",
+              "Default": "{\"demo\": \"updated data\"}",
+              "Location": "body",
+              "Type": "string",
+              "Description": "data"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Subscription For An Access Reservation",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/accessReservation/:accessReservationId/subscription/:subscriptionId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accessReservationId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            },
+            {
+              "Name": ":subscriptionId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "subscription Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Get Subscriptions For A Device",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/device/:deviceId/subscriptions",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Subscription For A Device",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/device/:deviceId/subscriptions",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "glass-monitor",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "data",
+              "Required": "N",
+              "Default": "{\"demo\": \"data\"}",
+              "Location": "body",
+              "Type": "string",
+              "Description": "data"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Subscription For A Device",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/device/:deviceId/subscription/:subscriptionId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            },
+            {
+              "Name": ":subscriptionId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "subscription Id"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "glass-monitor",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "data",
+              "Required": "N",
+              "Default": "{\"demo\": \"updated data\"}",
+              "Location": "body",
+              "Type": "string",
+              "Description": "data"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Subscription For A Device",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/device/:deviceId/subscription/:subscriptionId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            },
+            {
+              "Name": ":subscriptionId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "subscription Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Subscription For Device At Pi",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/device/:deviceId/pi/listen",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            {
+              "Name": "Accept-Version",
+              "Required": "Y",
+              "Default": "1.0.x",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Accept Version"
+            },
+            
+            {
+              "Name": ":deviceId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "device Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tokens",
+      "methods" : [
+        {
+          "MethodName": "Show Tokens",
+          "Synopsis": "list all of the token not the oauth token",
+          "HTTPMethod": "GET",
+          "URI": "/tokens",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Show A Token",
+          "Synopsis": "show a schedule",
+          "HTTPMethod": "GET",
+          "URI": "/token/:tokenId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":tokenId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "token Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Token",
+          "Synopsis": "Create a token",
+          "HTTPMethod": "POST",
+          "URI": "/tokens",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "tokenType",
+              "Required": "N",
+              "Default": "hex",
+              "Location": "body",
+              "Type": "string",
+              "Description": "token Type"
+            },
+            {
+              "Name": "accessReservationId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Token",
+          "Synopsis": "Update a token",
+          "HTTPMethod": "PUT",
+          "URI": "/token/:tokenId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":tokenId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "token Id"
+            },
+            {
+              "Name": "data",
+              "Required": "N",
+              "Default": "123456",
+              "Location": "body",
+              "Type": "string",
+              "Description": "data"
+            },
+            {
+              "Name": "accessReservationId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "access Reservation Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Token",
+          "Synopsis": "Delete a token",
+          "HTTPMethod": "DELETE",
+          "URI": "/token/:tokenId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":tokenId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "token Id"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

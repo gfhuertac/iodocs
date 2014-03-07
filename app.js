@@ -555,7 +555,15 @@ function processRequest(req, res, next) {
         };
 
     if (['POST','DELETE','PUT'].indexOf(httpMethod) !== -1) {
-        var requestBody = query.stringify(params);
+        var body = undefined;
+        /*if (params.body) {
+          try {
+            body = JSON.parse(params.body);
+          } catch (error) {
+            //just ignore and send normally
+          }
+        }*/
+        var requestBody = params.body || query.stringify(params);
     }
 
     if (apiConfig.oauth) {
@@ -937,6 +945,7 @@ function checkPathForAPI(req, res, next) {
 // Replaces deprecated app.dynamicHelpers that were dropped in Express 3.x
 // Passes variables to the view
 function dynamicHelpers(req, res, next) {
+    req.session['authed'] = false;
     if (req.params.api) {
         res.locals.apiInfo = apisConfig[req.params.api];
         res.locals.apiName = req.params.api;

@@ -20,5 +20,26 @@
       "Accept-Version": "1.0.x",
       "Runscope-Request-Port": "3003"
     }
+  },
+  "brivolabssam-mgmt": {
+    "name": "Brivo Labs SAM Management API",
+    "protocol": "https",
+    "baseURL": "gohucan.cloudapp.net:3003",
+    "publicPath": "/",
+    "privatePath": "/",
+    "auth": "oauth2",
+    "oauth2": {
+      "type": "authorization-code",
+      "baseSite": "https://gohucan.cloudapp.net:3003/",
+      "authorizeURL": "oauth/authorize",
+      "accessTokenURL": "oauth/token",
+      "tokenName": "oauth_token",
+      "authorizationHeader": "Y"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "Accept-Version": "1.0.x",
+      "Runscope-Request-Port": "3003"
+    }
   }
 }

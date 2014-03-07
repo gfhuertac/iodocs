@@ -1,0 +1,536 @@
+{
+  "endpoints": [
+    {
+      "name": "Accounts",
+      "methods" : [
+        {
+          "MethodName": "[Admin] Show Accounts",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/accounts",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "[Admin] Show Single Account",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/account/:accountId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accountId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "account Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "[Admin] Create An Account",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/accounts",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "username",
+              "Required": "N",
+              "Default": "some-name",
+              "Location": "body",
+              "Type": "string",
+              "Description": "username"
+            }
+          ]
+        },
+        {
+          "MethodName": "[Admin] Update An Account",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/account/:accountId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accountId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "account Id"
+            },
+            {
+              "Name": "username",
+              "Required": "N",
+              "Default": "some-name1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "username"
+            }
+          ]
+        },
+        {
+          "MethodName": "[Admin] Delete An Account",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/account/:accountId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":accountId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "account Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Domains",
+      "methods" : [
+        {
+          "MethodName": "Show Domains",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/domains",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Find A Domain",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/domain/:domainId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":domainId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "domain Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Create A Domain",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/domains",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "externalId",
+              "Required": "N",
+              "Default": "ORG123",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Domain",
+          "Synopsis": "Useful to add the credentials of the org",
+          "HTTPMethod": "PUT",
+          "URI": "/domain/:domainId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "string",
+              "Description": "Content Type"
+            },
+            {
+              "Name": ":domainId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "domain Id"
+            },
+            {
+              "Name": "body",
+              "Required": "N",
+              "Default": "{\n  \"externalId\": \"ORG123\",\n  \"credentials\": {\n    \"endpoint\": \"https://na9.salesforce.com/services/apexrest/brivolabs-checkin\",\n    \"clientId\": \"ThisIsMyClientIdFromSalesforce\",\n    \"clientSecret\": \"ThisIsMyClientSecretFromSalesforce\",\n    \"callback\": \"http://localhost:3200\",\n    \"username\": \"user@domain.com\",\n    \"password\": \"ThisIsMyPasswordFromSalesforce\",\n    \"environment\": \"production\",\n    \"loginUrl\": \"oauth2 login endpoint\",\n    \"apiVersion\": \"v29.0\",\n    \"brivoPiUser\": \"user@domain.com\",\n    \"cloudvue_user\": \"user@domain.com\",\n    \"cloudvue_pass\": \"ThisIsMyCloudvuePassword\"\n  }\n}",
+              "Location": "body",
+              "Type": "textarea",
+              "Description": ""
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Domain",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/domain/:domainId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":domainId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "domain Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Identities",
+      "methods" : [
+        {
+          "MethodName": "Show Identities",
+          "Synopsis": "list all of the Identities",
+          "HTTPMethod": "GET",
+          "URI": "/identities",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Create An Identity Record",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/identities",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "firstName",
+              "Required": "N",
+              "Default": "Jonh",
+              "Location": "body",
+              "Type": "string",
+              "Description": "first Name"
+            },
+            {
+              "Name": "lastName",
+              "Required": "N",
+              "Default": "Doe",
+              "Location": "body",
+              "Type": "string",
+              "Description": "last Name"
+            },
+            {
+              "Name": "email",
+              "Required": "N",
+              "Default": "test@test.com",
+              "Location": "body",
+              "Type": "string",
+              "Description": "email"
+            },
+            {
+              "Name": "username",
+              "Required": "N",
+              "Default": "asd",
+              "Location": "body",
+              "Type": "string",
+              "Description": "username"
+            },
+            {
+              "Name": "externalId",
+              "Required": "N",
+              "Default": "111",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Id"
+            },
+            {
+              "Name": "type",
+              "Required": "N",
+              "Default": "User",
+              "Location": "body",
+              "Type": "string",
+              "Description": "type"
+            },
+            {
+              "Name": "identityProvider",
+              "Required": "N",
+              "Default": "salesforce",
+              "Location": "body",
+              "Type": "string",
+              "Description": "identity Provider"
+            },
+            {
+              "Name": "externalOrgId",
+              "Required": "N",
+              "Default": "123",
+              "Location": "body",
+              "Type": "string",
+              "Description": "external Org Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Keys",
+      "methods" : [
+        {
+          "MethodName": "Show Keys",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/keys",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Create Private Key",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/keys/requestSignPrivateKey",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "body",
+              "Required": "N",
+              "Default": "-----BEGIN PRIVATE KEY-----\nMIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJ9Q6/YZb3Eg05qR\ngWLOOGiIDsMO8s6MRjFgx5d1Vd9EYuh4Dgn26BSVqvgn/EWMhzMghOm4V3Oiv3Qh\n/zmXgvbHTDH6bb4mREbletosDq06RsPfaOUFd+BEwhaABQUMbUNFz3N3i4uYslAN\nETbtnNapmYzrK+izCLQ0nIO+7xaXAgMBAAECgYEAm8sudEL7T82iIA0aUd0IHHCw\nvt7nYkSaf778b4g2qVbewiZk1Cm3WiniPzoa4IhDziOG1meGXXZRcuesBk27qrxR\nLYbardYNUEkqt7ktt04NBRRzUDSAYFE6Ibi+mJT/nIKkxLsnXstM49aA4TQApYWZ\n1pVzz/IRcIpu1j5VH0ECQQDUR7FeC/TfoI02V5X01EeXZgfUUPbOwH1a+PGikyEd\nUw7nJP5UwjSLsr3KsK+C5O+T1X+ikQgmY/aVf1WpiHhdAkEAwCC+gnb8f6L3C7wD\nTCM6GNelgikCJ7HWtzCClKXQTHH7WeY3x9K6MyOfBzUiQaW+2/3oWGG32Iib5HYM\nD8uLgwJAS+KlIT2c+CRo1rhQvwjz3sd2nQukbxyYs2Cy4K8/8z+x4Cd1U89pAVeQ\nSVkIJP66NlroGbFG/JJXn/G5KbXDcQJATwwp1dvGv2z5X+aXJLhJqvburcLZlCNj\nSDO5RheCwDEVTUOfJ6PX4DqDr5943LGo+TJaaiKqVXi/SxwWklkYqQJBALurTknp\n5z7sKxb99wJWwW4SXf5XujinqjOgkX4HoHzIM2LyfWM92UUXQvu4WK0dmR2JpRBo\ngV53RinPoxwPMCo=\n-----END PRIVATE KEY-----",
+              "Location": "body",
+              "Type": "textarea",
+              "Description": ""
+            }
+          ]
+        },
+        {
+          "MethodName": "Create Certificate Key",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/keys/requestSignCertificate",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "body",
+              "Required": "N",
+              "Default": "-----BEGIN CERTIFICATE-----\nMIIC7jCCAlegAwIBAgIJANYy1bDBSISCMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYD\nVQQGEwJVUzERMA8GA1UECAwITWFyeWxhbmQxETAPBgNVBAcMCEJldGhlc2RhMQ4w\nDAYDVQQKDAVCcml2bzEMMAoGA1UECwwDRGV2MREwDwYDVQQDDAhCcml2b1NESzEp\nMCcGCSqGSIb3DQEJARYaYWxleGFuZHJ1Lmlvbml0YUBicml2by5jb20wHhcNMTMw\nODI5MjAxMzI0WhcNMTQwODI5MjAxMzI0WjCBjzELMAkGA1UEBhMCVVMxETAPBgNV\nBAgMCE1hcnlsYW5kMREwDwYDVQQHDAhCZXRoZXNkYTEOMAwGA1UECgwFQnJpdm8x\nDDAKBgNVBAsMA0RldjERMA8GA1UEAwwIQnJpdm9TREsxKTAnBgkqhkiG9w0BCQEW\nGmFsZXhhbmRydS5pb25pdGFAYnJpdm8uY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GN\nADCBiQKBgQCfUOv2GW9xINOakYFizjhoiA7DDvLOjEYxYMeXdVXfRGLoeA4J9ugU\nlar4J/xFjIczIITpuFdzor90If85l4L2x0wx+m2+JkRG5XraLA6tOkbD32jlBXfg\nRMIWgAUFDG1DRc9zd4uLmLJQDRE27ZzWqZmM6yvoswi0NJyDvu8WlwIDAQABo1Aw\nTjAdBgNVHQ4EFgQUUVZqzf0PB1sLaw+kK0S9xdB70wEwHwYDVR0jBBgwFoAUUVZq\nzf0PB1sLaw+kK0S9xdB70wEwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOB\ngQCEm7MayAZxMyC6bhn/CYDtNhuZXyb5u3Kh7jWVO1oWgymkwKkprtXEPGhDcs7Z\nOI3/YjKoYgtTtAdUIwHc5/k23OnV7Z4+5WMlxkJ2S2c6bT87UKqgEulskrUvLi3B\nFs+eW5ULGuWzTFH/XFVf+XIzepKOCdB9ZHoWOzSmsTm93g==\n-----END CERTIFICATE-----",
+              "Location": "body",
+              "Type": "textarea",
+              "Description": ""
+            }
+          ]
+        },
+        {
+          "MethodName": "Create Keys",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/keys/keyname",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "body",
+              "Required": "N",
+              "Default": "-----BEGIN PRIVATE KEY-----\nMIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJ9Q6/YZb3Eg05qR\ngWLOOGiIDsMO8s6MRjFgx5d1Vd9EYuh4Dgn26BSVqvgn/EWMhzMghOm4V3Oiv3Qh\n/zmXgvbHTDH6bb4mREbletosDq06RsPfaOUFd+BEwhaABQUMbUNFz3N3i4uYslAN\nETbtnNapmYzrK+izCLQ0nIO+7xaXAgMBAAECgYEAm8sudEL7T82iIA0aUd0IHHCw\nvt7nYkSaf778b4g2qVbewiZk1Cm3WiniPzoa4IhDziOG1meGXXZRcuesBk27qrxR\nLYbardYNUEkqt7ktt04NBRRzUDSAYFE6Ibi+mJT/nIKkxLsnXstM49aA4TQApYWZ\n1pVzz/IRcIpu1j5VH0ECQQDUR7FeC/TfoI02V5X01EeXZgfUUPbOwH1a+PGikyEd\nUw7nJP5UwjSLsr3KsK+C5O+T1X+ikQgmY/aVf1WpiHhdAkEAwCC+gnb8f6L3C7wD\nTCM6GNelgikCJ7HWtzCClKXQTHH7WeY3x9K6MyOfBzUiQaW+2/3oWGG32Iib5HYM\nD8uLgwJAS+KlIT2c+CRo1rhQvwjz3sd2nQukbxyYs2Cy4K8/8z+x4Cd1U89pAVeQ\nSVkIJP66NlroGbFG/JJXn/G5KbXDcQJATwwp1dvGv2z5X+aXJLhJqvburcLZlCNj\nSDO5RheCwDEVTUOfJ6PX4DqDr5943LGo+TJaaiKqVXi/SxwWklkYqQJBALurTknp\n5z7sKxb99wJWwW4SXf5XujinqjOgkX4HoHzIM2LyfWM92UUXQvu4WK0dmR2JpRBo\ngV53RinPoxwPMCo=\n-----END PRIVATE KEY-----",
+              "Location": "body",
+              "Type": "textarea",
+              "Description": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Roles",
+      "methods" : [
+        {
+          "MethodName": "Show Roles",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/roles",
+          "RequiresOAuth": "Y",
+          "parameters": []
+        },
+        {
+          "MethodName": "Create A Role",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/roles",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "roleName",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "parentRoleId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "parent Role Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Update A Role",
+          "Synopsis": "",
+          "HTTPMethod": "PUT",
+          "URI": "/role/:roleId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":roleId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "role Id"
+            },
+            {
+              "Name": "name",
+              "Required": "N",
+              "Default": "roleName",
+              "Location": "body",
+              "Type": "string",
+              "Description": "name"
+            },
+            {
+              "Name": "parentRoleId",
+              "Required": "N",
+              "Default": "2",
+              "Location": "body",
+              "Type": "string",
+              "Description": "parent Role Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Delete A Role",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/role/:roleId",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":roleId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "role Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Get User'S Roles",
+          "Synopsis": "",
+          "HTTPMethod": "GET",
+          "URI": "/domainAccount/:domainAccountId/roles",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":domainAccountId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "domain Account Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Assign Role To User",
+          "Synopsis": "",
+          "HTTPMethod": "POST",
+          "URI": "/domainAccount/:domainAccountId/role",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":domainAccountId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "domain Account Id"
+            },
+            {
+              "Name": "roleId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "role Id"
+            }
+          ]
+        },
+        {
+          "MethodName": "Unassign Role From User",
+          "Synopsis": "",
+          "HTTPMethod": "DELETE",
+          "URI": "/domainAccount/:domainAccountId/role",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": ":domainAccountId",
+              "Required": "Y",
+              "Default": "1",
+              "Location": "pathReplace",
+              "Type": "string",
+              "Description": "domain Account Id"
+            },
+            {
+              "Name": "roleId",
+              "Required": "N",
+              "Default": "1",
+              "Location": "body",
+              "Type": "string",
+              "Description": "role Id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SignTest",
+      "methods" : [
+        {
+          "MethodName": "Sign Test",
+          "Synopsis": "Brivo Pi sign test",
+          "HTTPMethod": "GET",
+          "URI": "/signTest",
+          "RequiresOAuth": "Y",
+          "parameters": [
+            
+            {
+              "Name": "brivopath",
+              "Required": "Y",
+              "Default": "/api/access/point/all",
+              "Location": "header",
+              "Type": "string",
+              "Description": "BrivoPi path"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
