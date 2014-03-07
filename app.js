@@ -211,7 +211,7 @@ function oauth2(req, res, next){
         apiConfig = apisConfig[apiName];
 
     if (apiConfig.oauth2) {
-        var domainId = req.body.apiDomainId || req.body.domainId,
+        var domainId = req.body.apiDomainId || req.body.domain,
             apiKey = req.body.apiKey || req.body.key,
             apiSecret = req.body.apiSecret || req.body.secret,
             refererURL = url.parse(req.headers.referer),
