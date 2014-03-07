@@ -21,6 +21,9 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+// accept custom certificates
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 //
 // Module dependencies
 //
@@ -208,7 +211,8 @@ function oauth2(req, res, next){
         apiConfig = apisConfig[apiName];
 
     if (apiConfig.oauth2) {
-        var apiKey = req.body.apiKey || req.body.key,
+        var domainId = req.body.apiDomainId || req.body.domainId,
+            apiKey = req.body.apiKey || req.body.key,
             apiSecret = req.body.apiSecret || req.body.secret,
             refererURL = url.parse(req.headers.referer),
             callbackURL = refererURL.protocol + '//' + refererURL.host + '/oauth2Success/' + apiName,
@@ -233,7 +237,8 @@ function oauth2(req, res, next){
 
         var redirectUrl;
         if (apiConfig.oauth2.type == 'authorization-code') {
-            redirectUrl = oa.getAuthorizeUrl({redirect_uri : callbackURL, response_type : 'code'});
+            var oauth2Params = {redirect_uri : callbackURL, response_type : 'code', domainID: domainId};
+            redirectUrl = oa.getAuthorizeUrl( oauth2Params );
 
             db.set(key + ':apiKey', apiKey, redis.print);
             db.set(key + ':apiSecret', apiSecret, redis.print);
@@ -722,14 +727,16 @@ function processRequest(req, res, next) {
                         oa.setAccessTokenName(apiConfig.oauth2.tokenName);
                     }
 
-                    if (config.debug) {
+                    if (true || config.debug) {
+                        console.log('Api key: ' + apiKey);
                         console.log('Access token: ' + access_token);
                         console.log('Access token secret: ' + refresh_token);
                         console.log('key: ' + key);
                     }
 
+                    headers['apikey'] = apiKey;
                     if (apiConfig.oauth2.authorizationHeader && (apiConfig.oauth2.authorizationHeader == 'Y')) {
-                        var headers = {Authorization : "Bearer " + access_token};
+                        headers['Authorization'] = "Bearer " + access_token;
                     }
 
                     oa._request(httpMethod, privateReqURL, headers, requestBody, access_token, function (error, data, response) {
@@ -766,6 +773,9 @@ function processRequest(req, res, next) {
 
     // Unsecured API Call helper
     function unsecuredCall() {
+      db.mget([key + ':apiKey'], function(err, results) {
+        var apiKey = (typeof reqQuery.apiKey == "undefined" || reqQuery.apiKey == "undefined")?results[0]:reqQuery.apiKey;
+
         console.log('Unsecured Call');
 
         if (['POST','PUT','DELETE'].indexOf(httpMethod) === -1) {
@@ -901,6 +911,7 @@ function processRequest(req, res, next) {
         else {
             apiCall.end();
         }
+      });
     }
 }
 

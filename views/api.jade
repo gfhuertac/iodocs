@@ -17,6 +17,11 @@ block content
               - else if (apiInfo.oauth2)
                   input(type='hidden', name='oauth2', value='authrequired')
 
+              - if (apiInfo.auth.defaultDomain)
+                  - var defaultDomain =apiInfo.auth.defaultDomain
+              - else
+                  - var defaultDomain =''
+
               - if (apiInfo.auth.defaultKey)
                   - var defaultKey =apiInfo.auth.defaultKey
               - else
@@ -26,6 +31,9 @@ block content
                   - var defaultSecret =apiInfo.auth.defaultSecret
               - else
                   - var defaultSecret =''
+              div
+                  label(for='domain') Domain ID
+                  input(id='domain', name='domain', value=defaultDomain, style='color=#EEEEEE')
               div
                   - if (apiInfo.oauth || apiInfo.oauth2)
                       label(for='key') Client ID
